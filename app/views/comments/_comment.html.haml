@@ -1,0 +1,20 @@
+%li.media.post{ id: "comment_#{comment.id}" }
+  = link_to '#', class: 'pull-left' do
+    = image_tag 'udef.png'
+  .media-body
+    %h4.media-heading
+      = comment.user.fullname
+      .text-muted= "#{time_ago_in_words(comment.created_at)} ago."
+    - if comment.can_delete?(current_user)
+      .pull-right
+        = link_to comment, method: :delete, remote: true, class: 'btn btn-danger btn-xs' do
+          %i.fa.fa-times
+    .well
+      = comment.content
+      .text-right
+        - if user_signed_in?
+          - if comment.liked?(current_user.id)
+            = link_to "unlike", '#', remote: true, id: 'comment-unlike', data: { id: comment.id }
+          - else
+            = link_to "like", '#', remote: true, id: 'comment-like', data: { id: comment.id }
+        %i.fa.fa-heart.text-muted#comment-likes-count= comment.likes.count

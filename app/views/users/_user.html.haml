@@ -1,0 +1,7 @@
+%li.media.post{ id: "user_#{user.id}" }
+  = link_to user, class: 'pull-left' do
+    = image_tag 'udef.png'
+  .media-body
+    %h4.media-heading
+      = user.fullname
+    = user.email

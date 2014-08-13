@@ -1,0 +1,15 @@
+.row
+  .col-md-4
+    .well.text-center
+      = image_tag 'udef.png'
+      %h3= @user.fullname
+      %hr
+      - if user_signed_in? and current_user == @user
+        = link_to edit_registration_path(current_user), class: 'btn btn-default' do
+          %i.fa.fa-pencil &nbsp;Edit information
+  .col-md-8
+    .well
+      = render 'posts/form_inputs'
+    %ul.media-list.User
+      - @posts.each do |post|
+        = render 'posts/post', post: post

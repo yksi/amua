@@ -1,0 +1,31 @@
+.col-md-3
+  = form_tag registration_path(:user) do
+    %br
+    .input-group.input-group-lg
+      %span.input-group-addon ***
+      = text_field_tag 'user[first_name]', nil, class: 'form-control', placeholder: 'first name'
+    %br
+    .input-group.input-group-lg
+      %span.input-group-addon ***
+      = text_field_tag 'user[last_name]', nil, class: 'form-control', placeholder: 'last name'
+    %br
+    .input-group.input-group-lg
+      %span.input-group-addon @
+      = text_field_tag 'user[email]', nil, class: 'form-control', placeholder: 'email'
+    %br
+    .input-group.input-group-lg
+      %span.input-group-addon ***
+      = password_field_tag 'user[password]', nil, class: 'form-control', placeholder: 'password'
+    %br
+    .input-group.input-group-lg
+      %span.input-group-addon ***
+      = password_field_tag 'user[password_confirmation]', nil, class: 'form-control', placeholder: 'confirm password'
+    %br
+    .text-right
+      %button.btn.btn-default.btn-lg Sign up
+  = link_to "Already have an account?", new_user_session_path
+.col-md-9
+  .jumbotron
+    %h1 am.ua - social
+    %p You can register or login for free!
+    %p.text-muted= link_to 'Wiki', '#'

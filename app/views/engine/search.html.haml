@@ -1,0 +1,15 @@
+.panel.panel-warning
+  .panel-heading Search for amua users
+  .panel-body.container
+    = search_form_for @q, url: search_path, class: 'form-inline' do |f|
+      = f.search_field :first_name_or_last_name_cont, class: 'form-control'
+      = f.submit 'Search', class: 'btn btn-default'
+    %hr
+    %ul.media-list
+      - if @q.result.any?
+        - @q.result.each do |result|
+          = render 'users/user', user: result
+      - else
+        %h3
+          No users matched:
+          %strong= params['q']['first_name_or_last_name_cont']

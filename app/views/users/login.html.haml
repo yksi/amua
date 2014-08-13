@@ -1,0 +1,22 @@
+.row
+  .col-md-3
+    = form_tag session_path(:user) do
+      .input-group.input-group-lg
+        %span.input-group-addon @
+        = text_field_tag 'user[email]', nil, class: 'form-control'
+      %br
+      .input-group.input-group-lg
+        %span.input-group-addon ***
+        = password_field_tag 'user[password]', nil, class: 'form-control'
+      %br
+      .text-right
+        %button.btn.btn-default.btn-lg Sign in
+    = check_box_tag 'user[remember_me]'
+    = label_tag 'user[remember_me]', 'Remember me'
+    %br
+    = link_to "Don't have an account?", new_user_registration_path
+  .col-md-9
+    .jumbotron
+      %h1 am.ua - social
+      %p You can register or login for free!
+      %p.text-muted= link_to 'Wiki', '#'

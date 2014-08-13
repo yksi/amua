@@ -1,0 +1,6 @@
+.row
+  = form_for Comment.new, remote: true do |f|
+    = f.hidden_field :commentable_id, value: commentable_id
+    = f.hidden_field :commentable_type, value: commentable_type
+    .col-md-9= f.text_field :content, class: 'form-control comment_content'
+    .col-md-3= f.submit 'Comment', class: 'btn btn-small btn-success'

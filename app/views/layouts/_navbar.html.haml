@@ -1,0 +1,13 @@
+.navbar.navbar-default
+  .container-fluid
+    = link_to root_path, class: 'navbar-brand' do
+      %strong am.
+      ua
+    %ul.nav.navbar-nav.navbar-right
+      - if user_signed_in?
+        %li= link_to 'Search', search_path
+        %li= link_to current_user.fullname, show_user_path(current_user)
+        %li= link_to 'Logout', destroy_user_session_path, method: :delete
+      - else
+        %li= link_to "Login", users_login_path
+        %li= link_to "Register", users_register_path

@@ -1,0 +1,2 @@
+$('.media-list.Post#comments_<%= @comment.commentable.id %>').append("<%= escape_javascript(render('comments/comment', comment: @comment)) %>");
+$('.comment_content').val('');
