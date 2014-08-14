@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   def fullname
     if first_name.present? and last_name.present?
-      "#{first_name} #{last_name}"
+      "#{first_name} #{last_name}, id = #{id}"
     else
       email
     end

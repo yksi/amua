@@ -5,6 +5,8 @@ Amua::Application.routes.draw do
   get 'users/register'
   get 'id:id' => 'users#show', as: 'show_user'
   get 'search' => 'engine#search', as: 'search'
+  get 'haml_to_html' => 'test#hth', as: 'hth'
+  get '/test/get_last_user_fullname'
   # get '/users/:id' => redirect('/')
 
   devise_for :users, controllers: { registrations: 'users/registrations' }

@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
   before_action :find_comment, only: [:like, :unlike]
 
-
   def index
   end
 
